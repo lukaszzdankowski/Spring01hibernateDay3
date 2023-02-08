@@ -6,15 +6,25 @@
     <title>Title</title>
 </head>
 <body>
-<c:forEach items="${languages}" var="lang">
-    ${lang}<br>
-</c:forEach>
-
-
-<form:form method="post" modelAttribute="person">
-    Login <form:input path="login"/><br>
-    Password <form:password path="password"/><br>
-    Email <form:input path="email"/><br>
+<form:form method="post" modelAttribute="student">
+    First Name: <form:input path="firstName"/><br>
+    Last Name: <form:input path="lastName"/><br>
+    Male: <form:radiobutton path="gender" value="M"/>
+    Female: <form:radiobutton path="gender" value="F"/><br>
+    Country: <form:select path="country" items="${countries}"/><br>
+    Note: <form:textarea path="notes"/><br>
+    Mailing List: <form:checkbox path="mailingList"/><br>
+    Programming Skills: <br>
+    <form:select path="programmingSkills" items="${skills}" multiple="true"/><br>
+    Hobbies: <br>
+<%--    można było checkboxes użyć--%>
+<%--    <c:forEach items="${hobbies}" var="item">--%>
+<%--        <form:checkbox id="${item}" value="${item}" path="hobbies"/>--%>
+<%--        <label for="${item}"> ${item}</label><br>--%>
+<%--    </c:forEach>--%>
+    <form:checkboxes path="hobbies" items="${hobbies}"/>
+    <form:hidden path="id"/>
+    <br>
     <input type="submit">
 </form:form>
 </body>

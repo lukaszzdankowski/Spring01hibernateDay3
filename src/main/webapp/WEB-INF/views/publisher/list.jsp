@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <title>Author list</title>
+  <title>Publisher list</title>
   <style>
     table, th, td {
       border: 1px solid black;
@@ -15,22 +15,20 @@
   <thead>
   <tr>
     <th>Id</th>
-    <th>First Name</th>
-    <th>Last Name</th>
+    <th>Name</th>
     <th>Update link</th>
     <th>Delete link</th>
   </tr>
   </thead>
-  <c:forEach items="${authors}" var="author">
+  <c:forEach items="${publishers}" var="publisher">
     <tr>
-      <td>${author.id}</td>
-      <td><c:out value="${author.firstName}"/></td>
-      <td><c:out value="${author.lastName}"/></td>
-      <td><a href = "<c:url value = "/author/edit/${author.id}"/>">UPDATE</a></td>
-      <td><a href = "<c:url value = "/author/delete/${author.id}"/>">DELETE</a></td>
+      <td>${publisher.id}</td>
+      <td><c:out value="${publisher.name}"/></td>
+      <td><a href = "<c:url value = "/publisher/edit/${publisher.id}"/>">UPDATE</a></td>
+      <td><a href = "<c:url value = "/publisher/delete/${publisher.id}"/>">DELETE</a></td>
     </tr>
   </c:forEach>
 </table>
-<a href = "<c:url value = "/author/new"/>">Add new author</a>
+<a href = "<c:url value = "/publisher/new"/>">Add new publisher</a>
 </body>
 </html>

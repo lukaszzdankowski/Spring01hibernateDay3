@@ -2,17 +2,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>New author form</title>
+    <title>New publisher form</title>
 </head>
 <body>
-<form:form method="post" action="/author/save" modelAttribute="author">
+<form:form method="post" action="/publisher/save" modelAttribute="publisher">
     <p>
-        <form:label path="firstName">First Name</form:label>
-        <form:input path="firstName"/>
-    </p>
-    <p>
-        <form:label path="lastName">Last Name</form:label>
-        <form:input path="lastName"/>
+        <form:label path="name">Name</form:label>
+        <form:input path="name"/>
     </p>
     <p>
         <input type="submit">

@@ -1,15 +1,16 @@
 package pl.coderslab.person;
 
+import ch.qos.logback.classic.pattern.LineSeparatorConverter;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 public class PersonController {
     private final PersonDao personDao;
-    private  final PersonDetailsDao personDetailsDao;
+    private final PersonDetailsDao personDetailsDao;
 
     public PersonController(PersonDao personDao, PersonDetailsDao personDetailsDao) {
         this.personDao = personDao;
@@ -60,6 +61,40 @@ public class PersonController {
         Person person = personDao.findById(id);
         person.setLogin(login);
         personDao.update(person);
+        return person.toString();
+    }
+    @ModelAttribute("languages")
+    public List<String> getLanguages() {
+        return List.of("java", "php", "ruby", "python");
+    }
+
+    @GetMapping("/person/addform")
+    public String addPersonForm(Model model) {
+//        List<String> languages = List.of("java", "php", "ruby", "python");
+//        model.addAttribute("languages",languages);
+
+        Person person = personDao.findById(1);
+        model.addAttribute("person", person);
+        return "/person/addform";
+    }
+
+//    @PostMapping("/person/addform")
+//    @ResponseBody
+//    public String returnPersonForm(@RequestParam String login,
+//                                   @RequestParam String password,
+//                                   @RequestParam String email){
+//        Person person = new Person();
+//        person.setLogin(login);
+//        person.setPassword(password);
+//        person.setEmail(email);
+//        personDao.savePerson(person);
+//        return person.toString();
+//    }
+
+    @PostMapping("/person/addform")
+    @ResponseBody
+    public String returnPersonForm(Person person, Model model) {
+        personDao.savePerson(person);
         return person.toString();
     }
 }

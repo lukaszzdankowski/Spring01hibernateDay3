@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <title>Book list</title>
+  <title>Author list</title>
   <style>
     table, th, td {
       border: 1px solid black;
@@ -15,24 +15,22 @@
   <thead>
   <tr>
     <th>Id</th>
-    <th>Title</th>
-    <th>Rating</th>
-    <th>Publisher</th>
+    <th>First Name</th>
+    <th>Last Name</th>
     <th>Update link</th>
     <th>Delete link</th>
   </tr>
   </thead>
-  <c:forEach items="${books}" var="book">
+  <c:forEach items="${authors}" var="author">
     <tr>
-      <td>${book.id}</td>
-      <td><c:out value="${book.title}"/></td>
-      <td><c:out value="${book.rating}"/></td>
-      <td><c:out value="${book.publisher.name}"/></td>
-      <td><a href = "<c:url value = "/book/edit/${book.id}"/>">UPDATE</a></td>
-      <td><a href = "<c:url value = "/book/delete/${book.id}"/>">DELETE</a></td>
+      <td>${author.id}</td>
+      <td><c:out value="${author.firstName}"/></td>
+      <td><c:out value="${author.lastName}"/></td>
+      <td><a href = "<c:url value = "/author/edit/${author.id}"/>">UPDATE</a></td>
+      <td><a href = "<c:url value = "/author/delete/${author.id}"/>">DELETE</a></td>
     </tr>
   </c:forEach>
 </table>
-<a href = "<c:url value = "/book/new"/>">Add new book</a>
+<a href = "<c:url value = "/author/new"/>">Add new author</a>
 </body>
 </html>

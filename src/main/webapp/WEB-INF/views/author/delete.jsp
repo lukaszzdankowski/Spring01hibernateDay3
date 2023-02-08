@@ -5,14 +5,12 @@
     <title>Title</title>
 </head>
 <body>
-Book to delete:<br>
-Title: ${book.title}<br>
-Rating: ${book.rating}<br>
-Description: ${book.description}<br>
-<form:form method="post" action="/book/delete/${book.id}">
+Author to delete:<br>
+Name: ${author.firstName} ${author.lastName}<br>
+<form:form method="post" action="/author/delete/${author.id}">
     <input type="submit" value="DELETE">
 </form:form>
-<form:form method="get" action="/book/list">
+<form:form method="get" action="/author/list">
     <input type="submit" value="CANCEL">
 </form:form>
 

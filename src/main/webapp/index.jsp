@@ -4,8 +4,8 @@
     <title>Title</title>
 </head>
 <body>
-<a href="/book/list">Book list</a>
-<a href="/author/list">Author list</a>
-<a href="/publisher/list">Publisher list</a>
+<a href="/book/list">Book list</a><br>
+<a href="/author/list">Author list</a><br>
+<a href="/publisher/list">Publisher list</a><br>
 </body>
 </html>

@@ -47,7 +47,7 @@ public class BookDao {
     }
 
     public List<Book> findAllBooksThatHaveAnyPublisher() {
-        TypedQuery<Book> query = entityManager.createQuery("select b from Book b where b.publisher is not null", Book.class);
+        TypedQuery<Book> query = entityManager.createQuery("SELECT b FROM Book b JOIN b.publisher", Book.class);//tu zmieniane nie wiem czy działa
         return query.getResultList();
     }
 
@@ -59,8 +59,8 @@ public class BookDao {
     }
 
     public List<Book> findAllBooksForGivenAuthor(Author author) {
-        TypedQuery<Book> query = entityManager.createQuery("select b from Book b join fetch b.authors " +
-                "where :author member of b.authors", Book.class);
+        TypedQuery<Book> query = entityManager.createQuery(
+                "SELECT distinct b FROM Book b JOIN FETCH b.authors WHERE :author member of b.authors", Book.class);
         query.setParameter("author", author);
         List<Book> books = query.getResultList();
         return books;

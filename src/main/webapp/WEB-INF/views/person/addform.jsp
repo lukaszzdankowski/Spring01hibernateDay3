@@ -1,21 +1,21 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: z
-  Date: 07.02.2023
-  Time: 11:55
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
-<form method="post">
-    Login <input type="text" name="login"/>
-    Password <input type="text" name="password"/>
-    Email <input type="text" name="email"/>
+<c:forEach items="${languages}" var="lang">
+    ${lang}<br>
+</c:forEach>
+
+
+<form:form method="post" modelAttribute="person">
+    Login <form:input path="login"/><br>
+    Password <form:password path="password"/><br>
+    Email <form:input path="email"/><br>
     <input type="submit">
-</form>
+</form:form>
 </body>
 </html>

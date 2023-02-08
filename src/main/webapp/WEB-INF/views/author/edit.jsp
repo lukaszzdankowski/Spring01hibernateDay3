@@ -5,27 +5,15 @@
     <title>Title</title>
 </head>
 <body>
-<form:form method="post" action="/book/update" modelAttribute="book">
+<form:form method="post" action="/author/update" modelAttribute="author">
     <p>
-        <form:label path="title">Title</form:label>
-        <form:input path="title"/>
+        <form:label path="firstName">First Name</form:label>
+        <form:input path="firstName"/>
     </p>
     <p>
-        <form:label path="rating">Rating</form:label>
-        <form:input path="rating"/>
+        <form:label path="lastName">Last Name</form:label>
+        <form:input path="lastName"/>
     </p>
-    <p>
-        <form:label path="description">Description</form:label>
-        <form:input path="description"/>
-    </p>
-    <p>
-        <form:label path="publisher">Publisher</form:label>
-        <form:select itemValue="id" itemLabel="name" path="publisher" items="${publishers}" />
-    </p>
-<%--    <p>--%>
-<%--        <form:label path="authors">Author</form:label>--%>
-<%--        <form:select itemValue="id" itemLabel="lastName" path="authors" items="${authors}" />--%>
-<%--    </p>--%>
     <form:hidden path="id" />
     <p>
         <input type="submit">

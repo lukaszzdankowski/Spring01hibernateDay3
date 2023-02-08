@@ -5,12 +5,12 @@
     <title>Title</title>
 </head>
 <body>
-Author to delete:<br>
-Name: ${author.firstName} ${author.lastName}<br>
-<form:form method="post" action="/author/delete/${author.id}">
+Publisher to delete:<br>
+Name: ${publisher.name} <br>
+<form:form method="post" action="/publisher/delete/${publisher.id}">
     <input type="submit" value="DELETE">
 </form:form>
-<form:form method="get" action="/author/list">
+<form:form method="get" action="/publisher/list">
     <input type="submit" value="CANCEL">
 </form:form>
 

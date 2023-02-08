@@ -5,14 +5,10 @@
     <title>Title</title>
 </head>
 <body>
-<form:form method="post" action="/author/update" modelAttribute="author">
+<form:form method="post" action="/publisher/update" modelAttribute="publisher">
     <p>
-        <form:label path="firstName">First Name</form:label>
-        <form:input path="firstName"/>
-    </p>
-    <p>
-        <form:label path="lastName">Last Name</form:label>
-        <form:input path="lastName"/>
+        <form:label path="name">Name</form:label>
+        <form:input path="name"/>
     </p>
     <form:hidden path="id" />
     <p>
